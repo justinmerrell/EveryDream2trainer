@@ -2,7 +2,7 @@
 
 In order to train, you need a base model on which to train.  This is a one-time setup to configure base models when you want to use a particular base.
 
-Make sure the trainer is installed properly first. See [SETUP.md](SETUP.md) for more details. 
+Make sure the trainer is installed properly first. See [SETUP.md](SETUP.md) for more details.
 
 You can either [download one manually](#manual-download), or alternatively EveryDream2 can [automatically download](#automatic-download) a model from the Hugging Face hub for you.
 
@@ -43,7 +43,7 @@ For SD1.x models, use this (note it will spill a lot of warnings to the console,
     --checkpoint_path sd_v1-5_vae.ckpt ^
     --prediction_type epsilon ^
     --upcast_attn False ^
-    --dump_path "ckpt_cache/sd_v1-5_vae"
+    --dump_path "ckpt_cache/sd_v1-5_vae.ckpt"
 
 And the SD2.1 768 model (uses v2-v yaml and "v_prediction" prediction type):
 
@@ -92,14 +92,14 @@ You can check if a 🧨diffusers format model is available by checking [the "Fil
 ### Hugging Face login
 
 If the model requires you to sign a license agreement, you may need to login to the Hugging Face hub before downloads will work. You can do this by running the following command in the terminal window before you start training:
-   
+
     huggingface-cli login
 
-When prompted, paste a [Hugging Face User Access Token](https://huggingface.co/settings/tokens) into the terminal window (you may not see anything appear to show that you've pasted something), and then press Enter.  
+When prompted, paste a [Hugging Face User Access Token](https://huggingface.co/settings/tokens) into the terminal window (you may not see anything appear to show that you've pasted something), and then press Enter.
 
 > To get an Access Token you'll need to [create a Hugging Face account](https://huggingface.co/join) if you don't have one already. Login to your account and click `New token` on [your User Access Tokens page](https://huggingface.co/settings/tokens) to create an Access Token that you can then copy and paste into the terminal window.
 
-> Note that on Windows you may have to right-click the terminal window -> Paste, rather than just using ctrl-V. You also may not see anything appear in the terminal to indicate that you've pasted something - just press Enter anyway. If downloading doesn't work after setting a token, double-check you have agreed to the license agreement and try running `huggingface-cli login` again. 
+> Note that on Windows you may have to right-click the terminal window -> Paste, rather than just using ctrl-V. You also may not see anything appear in the terminal to indicate that you've pasted something - just press Enter anyway. If downloading doesn't work after setting a token, double-check you have agreed to the license agreement and try running `huggingface-cli login` again.
 
 **Alternatively**, you can set the environment variable `HF_API_TOKEN` to your Access Token. On Windows:
 
@@ -113,7 +113,7 @@ Replace `<token>` with the Access Token you got from [your Hugging Face User Acc
 
 ### Where are the files?
 
-By default the downloaded Hugging Face files are stored in the Hugging Face cache folder. On Windows this is at `C:\Users\username.cache\huggingface\hub`. On Linux it is at `~/.cache/huggingface/hub`. 
+By default the downloaded Hugging Face files are stored in the Hugging Face cache folder. On Windows this is at `C:\Users\username.cache\huggingface\hub`. On Linux it is at `~/.cache/huggingface/hub`.
 
 You can set the environment variable `HUGGINGFACE_HUB_CACHE` to change this. Eg, to put the cache on `Z:\stable-diffusion-big-files\huggingface-hub-cache` (on Windows):
 
